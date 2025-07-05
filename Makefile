@@ -25,7 +25,7 @@ install:
 	. venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt
 
 run:
-	. venv/bin/activate && uvicorn src.app:app --reload
+	PYTHONPATH=src . venv/bin/activate && uvicorn src.app:app --reload
 
 test:
 	PYTHONPATH=src . venv/bin/activate && pytest
