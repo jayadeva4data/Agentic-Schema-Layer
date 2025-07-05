@@ -1,6 +1,7 @@
 import os
 from langchain.prompts import PromptTemplate
-from langchain.chains import LLMChain
+# from langchain.chains import LLMChain  # Deprecated
+from langchain_openai import ChatOpenAI, OpenAI
 
 class NLToSQLAgent:
     def __init__(self, schema_metadata, openai_api_key=None, model_name="gpt-3.5-turbo", llm=None):
@@ -11,11 +12,9 @@ class NLToSQLAgent:
             self.llm = llm
         else:
             if "gpt-3.5" in model_name or "gpt-4" in model_name:
-                from langchain.chat_models import ChatOpenAI
-                self.llm = ChatOpenAI(openai_api_key=self.openai_api_key, model=model_name, temperature=0)
+                self.llm = ChatOpenAI(api_key=self.openai_api_key, model=model_name, temperature=0)
             else:
-                from langchain.llms import OpenAI
-                self.llm = OpenAI(openai_api_key=self.openai_api_key, model=model_name, temperature=0)
+                self.llm = OpenAI(api_key=self.openai_api_key, model=model_name, temperature=0)
         self.prompt_template = PromptTemplate(
             input_variables=["question", "schema"],
             template=(
@@ -25,7 +24,8 @@ class NLToSQLAgent:
                 "SQL:"
             )
         )
-        self.chain = LLMChain(llm=self.llm, prompt=self.prompt_template)
+        # Use RunnableSequence: prompt | llm
+        self.chain = self.prompt_template | self.llm
 
     def schema_to_string(self):
         # Convert schema metadata to a readable string for the prompt
@@ -38,5 +38,12 @@ class NLToSQLAgent:
 
     def translate(self, question):
         schema_str = self.schema_to_string()
-        result = self.chain.run({"question": question, "schema": schema_str})
-        return result.strip() 
+        # Use invoke instead of run
+        result = self.chain.invoke({"question": question, "schema": schema_str})
+        # result may be a dict or string depending on the model
+        if isinstance(result, dict) and "text" in result:
+            return result["text"].strip()
+        elif isinstance(result, str):
+            return result.strip()
+        else:
+            return str(result).strip() 
