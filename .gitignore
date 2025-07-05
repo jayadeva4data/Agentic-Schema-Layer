@@ -1,1 +1,25 @@
-venv/\n__pycache__/\n*.pyc
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# dbt
+semantic_layer_dbt/dbt_modules/
+semantic_layer_dbt/target/
+semantic_layer_dbt/.dbt/
+
+# Docker volumes
+pgdata/
+
+# Logs
+*.log
+
+# OS/Editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+.pytest_cache/
