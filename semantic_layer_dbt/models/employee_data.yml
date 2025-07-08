@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: employee_data
+    description: >
+      This model processes and cleans the raw employee data from the employee_data_raw table.
+      It standardizes column names, data types, and ensures data quality for further analysis.
+    columns:
+      - name: emp_id
+        description: >
+          The unique identifier for each employee. This is a bigint value that serves as the primary key.
+      - name: first_name
+        description: >
+          The first name of the employee. This is a text field containing the given name of the employee.
+      - name: last_name
+        description: >
+          The last name of the employee. This is a text field containing the family name or surname of the employee.
+      - name: gender
+        description: >
+          The gender of the employee. This is a text field that may contain values such as 'Male', 'Female', or other gender identities.
+      - name: department
+        description: >
+          The department in which the employee works. This is a text field indicating the organizational unit.
+      - name: salary
+        description: >
+          The salary of the employee. This is a bigint value representing the annual salary in the company's currency.
+      - name: hire_date
+        description: >
+          The date the employee was hired. This is a text field formatted as 'YYYY-MM-DD'.
+      - name: location
+        description: >
+          The location where the employee is based. This is a text field indicating the city or office location.

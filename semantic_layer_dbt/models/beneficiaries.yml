@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: beneficiaries
+    description: "A table containing information about beneficiaries of various schemes, including personal details and location data."
+    columns:
+      - name: District_Name
+        description: "The name of the district where the beneficiary resides."
+      - name: AcCode
+        description: "The assembly constituency code associated with the beneficiary's location."
+      - name: ACName
+        description: "The name of the assembly constituency associated with the beneficiary's location."
+      - name: Mandal_Name
+        description: "The name of the mandal or administrative division where the beneficiary resides."
+      - name: SECRETARIAT_CODE
+        description: "The code of the secretariat responsible for the beneficiary's area."
+      - name: SECRETARIAT_Name
+        description: "The name of the secretariat responsible for the beneficiary's area."
+      - name: CLUSTER_ID
+        description: "The identifier for the cluster within the secretariat's jurisdiction."
+      - name: CLUSTER_NAME
+        description: "The name of the cluster within the secretariat's jurisdiction."
+      - name: CITIZEN_NAME
+        description: "The full name of the beneficiary."
+      - name: MOBILE
+        description: "The mobile phone number of the beneficiary."
+      - name: DOB
+        description: "The date of birth of the beneficiary, stored as text."
+      - name: GENDER
+        description: "The gender of the beneficiary."
+      - name: SCHEME
+        description: "The name of the scheme under which the beneficiary is registered."
