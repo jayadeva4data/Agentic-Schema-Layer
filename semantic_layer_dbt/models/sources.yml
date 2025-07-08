@@ -1,0 +1,66 @@
+version: 2
+sources:
+- name: public
+  tables:
+  - name: beneficiaries_raw
+    columns:
+    - name: District_Name
+      description: Column of type TEXT
+    - name: AcCode
+      description: Column of type BIGINT
+    - name: ACName
+      description: Column of type TEXT
+    - name: Mandal_Name
+      description: Column of type TEXT
+    - name: SECRETARIAT_CODE
+      description: Column of type TEXT
+    - name: SECRETARIAT_Name
+      description: Column of type TEXT
+    - name: CLUSTER_ID
+      description: Column of type BIGINT
+    - name: CLUSTER_NAME
+      description: Column of type TEXT
+    - name: CITIZEN_NAME
+      description: Column of type TEXT
+    - name: MOBILE
+      description: Column of type BIGINT
+    - name: DOB
+      description: Column of type TEXT
+    - name: GENDER
+      description: Column of type TEXT
+    - name: SCHEME
+      description: Column of type TEXT
+  - name: employee_data_raw
+    columns:
+    - name: emp_id
+      description: Column of type BIGINT
+    - name: frst_nm
+      description: Column of type TEXT
+    - name: lst_nm
+      description: Column of type TEXT
+    - name: gndr
+      description: Column of type TEXT
+    - name: dept
+      description: Column of type TEXT
+    - name: salry
+      description: Column of type BIGINT
+    - name: hre_dte
+      description: Column of type TEXT
+    - name: loc
+      description: Column of type TEXT
+  - name: ecommerce_dataset_raw
+    columns:
+    - name: userId
+      description: Column of type BIGINT
+    - name: productId
+      description: Column of type TEXT
+    - name: Product Name
+      description: Column of type TEXT
+    - name: Category
+      description: Column of type TEXT
+    - name: Release Year
+      description: Column of type BIGINT
+    - name: User Rating
+      description: Column of type DOUBLE PRECISION
+    - name: Average Rating
+      description: Column of type DOUBLE PRECISION

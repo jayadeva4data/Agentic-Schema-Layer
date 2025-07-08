@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: ecommerce_dataset
+    description: "A model representing a cleaned and transformed version of the raw ecommerce dataset, containing user interactions with products."
+    columns:
+      - name: userId
+        description: "A unique identifier for each user interacting with the ecommerce platform."
+      - name: productId
+        description: "A unique identifier for each product available on the ecommerce platform."
+      - name: product_name
+        description: "The name of the product as listed on the ecommerce platform."
+      - name: category
+        description: "The category to which the product belongs, aiding in product classification and filtering."
+      - name: release_year
+        description: "The year in which the product was released or made available on the ecommerce platform."
+      - name: user_rating
+        description: "The rating given by a user to a product, ranging from 0 to 5, indicating user satisfaction."
+      - name: average_rating
+        description: "The average rating of the product calculated from all user ratings, providing an overall satisfaction score."
+
